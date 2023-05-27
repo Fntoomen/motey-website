@@ -59,8 +59,8 @@ $sql = sprintf("INSERT INTO emotes
     (name, location)
     VALUES
     ('%s', '%s')",
-    $conn -> mysqli_real_escape_string( $_POST['emotename'] ),
-    $conn -> mysqli_real_escape_string( $target_file ),
+    $conn -> real_escape_string( $_POST['emotename'] ),
+    $conn -> real_escape_string( $target_file ),
     );
 
 if ( $conn -> query( $sql ) === TRUE ) {
