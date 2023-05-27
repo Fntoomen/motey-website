@@ -50,6 +50,7 @@ if ($uploadOk == 0) {
 } else {
 	if (move_uploaded_file($_FILES["emote"]["tmp_name"], $target_file)) {
 		echo nl2br("\nThe file ". htmlspecialchars( basename( $_FILES["emote"]["name"])). " has been uploaded.");
+		echo '<br><img src="' . $target_file . '">'
 	} else {
 		die(nl2br("\nSorry, there was an error uploading your file."));
 	}
