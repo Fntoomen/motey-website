@@ -4,6 +4,13 @@ $target_dir = "emotes/";
 $target_file = $target_dir . basename($_FILES["emote"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$required = array($_POST['emotename'], $target_file);
+
+foreach($required as $field) {
+	if (empty($field)) {
+		die(nl2br("\nYou need to fill all fields"));
+	}
+}
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -52,15 +59,6 @@ if ($uploadOk == 0) {
 $username = "root";
 $password = "passwd";
 $dbname = "emotebot";
-
-$required = array($_POST['emotename'], $target_file);
-
-foreach($required as $field) {
-	if (empty($field)) {
-		die(nl2br("\nYou need to fill all fields")) ;
-	}
-}
-
 
 $conn = new mysqli("localhost", $username, $password, $dbname);
 $sql = sprintf("INSERT INTO emotes
