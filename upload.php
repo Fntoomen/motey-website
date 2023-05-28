@@ -22,7 +22,7 @@ if(isset($_POST["submit"])) {
 
 // Check if file already exists
 if (file_exists($target_file)) {
-	die(nl2br("\nSorry, emote with this name already exists."));
+	die(nl2br("\nSorry, emote file name already exists."));
 }
 
 // Check file size
