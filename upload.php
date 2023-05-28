@@ -1,5 +1,4 @@
 <?php
-
 require 'vendor/autoload.php';
 use bandwidthThrottle\tokenBucket\Rate;
 use bandwidthThrottle\tokenBucket\TokenBucket;
