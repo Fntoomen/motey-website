@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['HOME'] . 'vendor/autoload.php';
+require 'vendor/autoload.php';
 use bandwidthThrottle\tokenBucket\Rate;
 use bandwidthThrottle\tokenBucket\TokenBucket;
 use bandwidthThrottle\tokenBucket\storage\FileStorage;
