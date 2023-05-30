@@ -8,7 +8,7 @@ const DB_NAME = "emotebot";
 
 const EMOTE_NAME = $_POST["emotename"];
 const TARGET_DIR = "emotes/";
-const FILE_EXTENSION = strtolower(pathinfo($_FILES["emote"]["name"]), PATHINFO_EXTENSION));
+const FILE_EXTENSION = strtolower(pathinfo($_FILES["emote"]["name"], PATHINFO_EXTENSION));
 const TARGET_FILE = TARGET_DIR . EMOTE_NAME . FILE_EXTENSION;
 const TMP_FILE = $_FILES["emote"]["tmp_name"];
 const FILE_SIZE = $_FILES["emote"]["size"];
