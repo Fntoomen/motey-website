@@ -10,7 +10,6 @@ const DB_NAME = "emotebot";
 define("EMOTE_NAME", $_POST["emotename"]);
 define("FILE_EXTENSION", strtolower(pathinfo($_FILES["emote"]["name"], PATHINFO_EXTENSION)));
 define("TARGET_FILE", TARGET_DIR . EMOTE_NAME . "." . FILE_EXTENSION);
-$dbTargetFile = TARGET_FILE;
 define("TMP_FILE", $_FILES["emote"]["tmp_name"]);
 define("FILE_SIZE", $_FILES["emote"]["size"]);
 
@@ -54,7 +53,9 @@ $conn = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 $conn->set_charset("utf8mb4");
 $stmt = $conn->prepare("INSERT INTO emotes (name, location) VALUES (?, ?)");
-$stmt->bind_param("ss", $_POST["emotename"], $dbTargetFile);
+$tmpEmoteName = EMOTE_NAME;
+$tmpTargetFile = TARGET_FILE;
+$stmt->bind_param("ss", $tmpEmoteName, $tmpTargetFile);
 $stmt->execute();
 $stmt->close();
 
