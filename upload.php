@@ -32,8 +32,8 @@ if ($_FILES["emote"]["size"] > 20000000) {
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" && $imageFileType != "webp" && $imageFileType != "mp4" ) {
-	die(nl2br("\nSorry, only WEBP, MP4, JPG, JPEG, PNG & GIF emotes are allowed."));
+&& $imageFileType != "gif" && $imageFileType != "webp") {
+	die(nl2br("\nSorry, only WEBP, JPG, JPEG, PNG & GIF emotes are allowed."));
 }
 
 if (move_uploaded_file($_FILES["emote"]["tmp_name"], $target_file)) {
