@@ -37,8 +37,8 @@ if (FILE_SIZE > MAX_FILE_SIZE) {
 }
 
 // Allow certain file formats
-if(FILE_EXNTENSION != "jpg" && FILE_EXNTENSION != "png" && FILE_EXNTENSION != "jpeg"
-&& FILE_EXNTENSION != "gif" && FILE_EXNTENSION != "webp") {
+if(FILE_EXTENSION != "jpg" && FILE_EXTENSION != "png" && FILE_EXTENSION != "jpeg"
+&& FILE_EXTENSION != "gif" && FILE_EXTENSION != "webp") {
 	die(nl2br("\nOnly WEBP, JPG, JPEG, PNG & GIF extensions are allowed."));
 }
 
