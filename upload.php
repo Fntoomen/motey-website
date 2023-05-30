@@ -23,7 +23,7 @@ foreach($required as $field) {
 }
 
 // Check if image file is a actual image or fake image
-if($check == getimagesize(TMP_FILE)) {
+if(getimagesize(TMP_FILE == false)) {
 	die(nl2br("\nFile is not an image or gif."));
 }
 
