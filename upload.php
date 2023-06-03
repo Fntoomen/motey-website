@@ -3,7 +3,6 @@ const MAX_FILE_SIZE = 5000000; # 5MB
 const TARGET_DIR = "emotes/";
 
 const DB_HOSTNAME = "localhost";
-const DB_SOCKET = "/var/lib/mysql/mysql.sock";
 const DB_USERNAME = "root";
 const DB_PASSWORD = "passwd";
 const DB_NAME = "emotebot";
@@ -50,7 +49,7 @@ if (move_uploaded_file(TMP_FILE, TARGET_FILE)) {
 	die(nl2br("\nThere was an error."));
 }
 
-$conn = new mysqli(DB_HOSTNAME . ":" . DB_SOCKET, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$conn = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 $conn->set_charset("utf8mb4");
 $stmt = $conn->prepare("INSERT INTO emotes (name, location) VALUES (?, ?)");
