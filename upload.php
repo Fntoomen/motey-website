@@ -1,4 +1,6 @@
 <?php
+chdir(__DIR__);
+
 const MAX_FILE_SIZE = 5000000; # 5MB
 const TARGET_DIR = "emotes/";
 
