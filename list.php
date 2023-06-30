@@ -17,8 +17,8 @@ echo "<table>
 	</tr>";
 while($row = mysqli_fetch_assoc($result)) {
 	echo sprintf("<tr>
-		<td>%s</td>
-		<td><img src='%s'></td>
+		<td><strong>%s</strong></td>
+		<td><img src='%s' style='max-width:100px;width:100%%'></td>
 		</tr>", $row['name'], $row['location']);
 }
 echo "</table>";
