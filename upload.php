@@ -35,19 +35,21 @@ function resize_image($file, $desired_width){
 			$image = imagecreatefromwebp($file);
 		}
 		$width = imagesx($image);
-		$height = imagesy($image);
-		$new_width = $desired_width;
-		$new_height = $height * $desired_width / $width;
-		$new_image = imagecreatetruecolor($new_width, $new_height);
-		imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-		if(FILE_EXTENSION == "jpg" || FILE_EXTENSION == "jpeg"){
-			imagejpeg($new_image, $file);;
-		}
-		elseif(FILE_EXTENSION == "png"){
-			imagepng($new_image, $file);;
-		}
-		elseif(FILE_EXTENSION == "webp"){
-			imagewebp($new_image, $file);;
+		if($width > $desired_width){
+			$height = imagesy($image);
+			$new_width = $desired_width;
+			$new_height = $height * $desired_width / $width;
+			$new_image = imagecreatetruecolor($new_width, $new_height);
+			imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+			if(FILE_EXTENSION == "jpg" || FILE_EXTENSION == "jpeg"){
+				imagejpeg($new_image, $file);;
+			}
+			elseif(FILE_EXTENSION == "png"){
+				imagepng($new_image, $file);;
+			}
+			elseif(FILE_EXTENSION == "webp"){
+				imagewebp($new_image, $file);;
+			}
 		}
 	}
 }
