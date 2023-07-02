@@ -23,6 +23,35 @@ foreach($required as $field) {
 	}
 }
 
+function resize_image($file, $desired_width){
+	if(file_exists($file)){
+		if(FILE_EXTENSION == "jpg" || FILE_EXTENSION == "jpeg"){
+			$image = imagecreatefromjpeg($file);
+		}
+		elseif(FILE_EXTENSION == "png"){
+			$image = imagecreatefrompng($file);
+		}
+		elseif(FILE_EXTENSION == "webp"){
+			$image = imagecreatefromwebp($file);
+		}
+		$width = imagesx($image);
+		$height = imagesy($image);
+		$new_width = $desired_width;
+		$new_height = $height * $desired_width / $width;
+		$new_image = imagecreatetruecolor($new_width, $new_height);
+		imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+		if(FILE_EXTENSION == "jpg" || FILE_EXTENSION == "jpeg"){
+			imagejpeg($new_image, $file);;
+		}
+		elseif(FILE_EXTENSION == "png"){
+			imagepng($new_image, $file);;
+		}
+		elseif(FILE_EXTENSION == "webp"){
+			imagewebp($new_image, $file);;
+		}
+	}
+}
+
 // Check if image file is a actual image or fake image
 if(getimagesize(TMP_FILE) == false) {
 	die(nl2br("\nFile is not an image or gif."));
@@ -45,6 +74,9 @@ if(FILE_EXTENSION != "jpg" && FILE_EXTENSION != "png" && FILE_EXTENSION != "jpeg
 }
 
 if (move_uploaded_file(TMP_FILE, TARGET_FILE)) {
+	if(FILE_EXTENSION != "gif"){
+		resize_image(TARGET_FILE, '200');
+	}
 	echo nl2br("\nEmote has been uploaded.");
 	echo sprintf("<br><img src='%s'>", TARGET_FILE);
 } else {
