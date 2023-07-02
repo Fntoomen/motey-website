@@ -1,3 +1,5 @@
+# Motey
+
 ## Showcase: https://diode.zone/w/ubagxKp9GmJCgduqk8LeU3
 
 ## Github:
@@ -58,3 +60,13 @@ CREATE TABLE emotes (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 ```
+
+# TODO
+* Cache'owanie się listy emotek. Za każdym razem ktoś odwiedzi `list.php` serwer musi przeiterować całą bazę danych i dopiero potem wyświetlić tabelę/listę emotek.
+* Bot ma być serwero-agnostyczny. Każdy serwer Discord powinien mieć swój zestaw emotek.
+* System logowania. Żeby wysłać emotkę, użytkownik powinien być zalogowany. Ułatwi to usuwanie wszystkich emotek od jednego użytkownika np. jeśli ktoś zdecyduje się wysłać 10 razy tę samą emotkę.
+* Skalowanie wysłanych zdjęć/gifów. Skalowanie, żeby wszystkie emotki miały mniej więcej ten sam rozmiar. Można do tego użyć `imagecopyresized()`.
+* Konwersja ruchomych WebP na GIF. Discord nie obsługuje ruchomych WebP, więc trzeba je koncertować na GIFy. Nieruchome/statyczne WebP działają normalnie.
+* Użycie frameworku. Na razie strona jest napisana w czystym PHP z biblioteką do CSS. Chciałbym żebyśmy używali jakiegoś frameworku typu Larvel (PHP) albo Phoenix (Elixir).
+* Niech bot jako nazwę webhooka używa nicku, a nie loginu. Na przykład w moim wypadku zamiast 'gal.anonim' powinien pisać 'gall'
+* Dockerfile z gotowym środowiskiem do testowania/hostowania bota i strony. Niektórzy mają problem z ustawieniem środowiska tak aby bot i strona działały, dlatego chce zrobić Dockerfile, żeby można było sobie po prostu robić wszystko w dobrze skonfigurowanym kontenerze.
