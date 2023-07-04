@@ -1,10 +1,7 @@
 <?php
 chdir(__DIR__);
 
-const DB_HOSTNAME = "localhost";
-const DB_USERNAME = "root";
-const DB_PASSWORD = "passwd";
-const DB_NAME = "emote";
+require_once"config.php";
 
 $conn = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $sql = "SELECT * FROM emotes;";

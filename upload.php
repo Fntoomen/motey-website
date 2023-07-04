@@ -1,13 +1,10 @@
 <?php
 chdir(__DIR__);
 
+require_once"config.php";
+
 const MAX_FILE_SIZE = 5000000; # 5MB
 const TARGET_DIR = "emotes/";
-
-const DB_HOSTNAME = "localhost";
-const DB_USERNAME = "root";
-const DB_PASSWORD = "passwd";
-const DB_NAME = "emote";
 
 define("EMOTE_NAME", $_POST["emotename"]);
 define("FILE_EXTENSION", strtolower(pathinfo($_FILES["emote"]["name"], PATHINFO_EXTENSION)));
