@@ -8,14 +8,14 @@
 		<link rel="icon" type="image/png" href='favicon.png'/>
 	</head>
 	<body>
-		<?php
-		session_start();
-		if(!isset($_SESSION["username"]))
-        {
-			header('Location: login.php');
-		}
-		$login = $_SESSION["username"];
-		?>
+<?php
+session_start();
+if(!isset($_SESSION["username"]))
+{
+	header('Location: login.php');
+}
+$login = $_SESSION["username"];
+?>
 		<!--"Header"-->
 		<section class="hero is-black">
 			<div class="hero-body is-fullheight">

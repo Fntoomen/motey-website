@@ -1,7 +1,7 @@
 <?php
 chdir(__DIR__);
 
-require_once"config.php";
+require_once "config.php";
 
 $conn = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $sql = "SELECT * FROM emotes;";

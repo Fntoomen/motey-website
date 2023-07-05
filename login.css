@@ -1,18 +1,18 @@
 .menu
 {
-    background-color: #091a27;
-    color: rgb(0, 255, 170);
-    position: absolute;
-    top: 35%;
-    left: 37.5%;
-    width: 25%;
-    height: 26.25%;
+	background-color: #091a27;
+	color: rgb(0, 255, 170);
+	position: absolute;
+	top: 35%;
+	left: 37.5%;
+	width: 25%;
+	height: 26.25%;
 }
 body
 {
-    margin: 0%;
-    width: 100vw;
-    height: 100vh;
-    background-color: #001620;
-    background-size: cover;
+	margin: 0%;
+	width: 100vw;
+	height: 100vh;
+	background-color: #001620;
+	background-size: cover;
 }
