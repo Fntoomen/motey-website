@@ -33,12 +33,15 @@ else
 			$_SESSION["username"] = $login;
 			header('Location: index.php');
 		}
+		else
+		{
+			$_SESSION["error"] = true;
+			unset($_SESSION["username"]);
+			header('Location: login.php');
+		}
 	}
 
 	$result->free_result();
-	$_SESSION["error"] = true;
-	unset($_SESSION["username"]);
-	header('Location: login.php');
 	$conn->close();
 }
 ?> 
