@@ -1,7 +1,7 @@
 <?php
 chdir(__DIR__);
 
-require_once"config.php";
+require_once "config.php";
 
 const MAX_FILE_SIZE = 5000000; # 5MB
 const TARGET_DIR = "emotes/";
@@ -38,10 +38,10 @@ function resize_image($file, $desired_width){
 			$new_width = $desired_width;
 			$new_height = $height * $desired_width / $width;
 			$new_image = imagecreatetruecolor($new_width, $new_height);
-      			if(FILE_EXTENSION == "png"){
+			if(FILE_EXTENSION == "png"){
 				imagealphablending($new_image, false);
 				imagesavealpha($new_image, true);  
-		  	}
+			}
 			imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 			if(FILE_EXTENSION == "jpg" || FILE_EXTENSION == "jpeg"){
 				imagejpeg($new_image, $file);;
