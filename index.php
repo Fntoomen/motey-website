@@ -8,6 +8,14 @@
 		<link rel="icon" type="image/png" href='favicon.png'/>
 	</head>
 	<body>
+		<?php
+		session_start();
+		if(!isset($_SESSION["username"]))
+        {
+			header('Location: login.php');
+		}
+		$login = $_SESSION["username"];
+		?>
 		<!--"Header"-->
 		<section class="hero is-black">
 			<div class="hero-body is-fullheight">
@@ -20,7 +28,7 @@
 			</div>
 		</section>
 		<!--Nav bar (te linki poniżej)-->
-		<nav class="navbar has-text-black-bis" role="navigation" aria-label="main navigation">
+		<nav class="navbar has-text-black-bis" role="navigation" aria-label="main navigation"  style="background-color: rgb(8, 14, 9);">
 			<div id="navbar" class="navbar-menu">
 				<div class="navbar-start">
 					<a class="navbar-item" href="list.php">
